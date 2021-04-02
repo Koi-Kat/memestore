@@ -23,19 +23,20 @@
 
 				xhr.send();
    			}
-			
-			function insertPics(PickFile){
+			/*function upload-profile-pic(){
 
 				var xhr = new XMLHttpRequest();
-				xhr.open("POST", "http://localhost:3000/insertPics?=");
-				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
+				xhr.open("POST","http://localhost:3000/upload-profile-pic?" );
+				xhr.setRequestHeader("Content-Type", "application/x-ww-form-urlencoded");
+				
 				xhr.onreadystatechange = function() {
-        			if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            			document.getElementById("response-div").innerHTML = this.responseText;
-       				}
+					if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+						document.getElementById("response-div").innerHTML = this.responseText;
+					}
 				};
-			}
+
+				xhr.send();
+			}*/
 			
 		</script>
 
@@ -46,12 +47,15 @@
                 <h3 style="color:darkmagenta;">Cats or dogs?</h3> <br>
 				<!--<input type="text">
 				<button type="submit">Put in the picture</button>-->
-				<form method="POST" enctype="multipart/form-data">
-					<label for="PicFile">Please insert a cat or dog image:</label>
-					<input type="file" id="PickFile" name="PickFile" accept=".jpg, .jpeg, .png">
-                	<br>
-                	<button type="submit" onclick="">Put in your picture!</button>
-				</form>	
+				<form method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
+						<label>Select your cat or dog picture:</label>
+						<input type="file" name="profile_pic" />
+						<input type="submit" name="btn_upload_profile_pic" value="Upload" />
+				</form>
+				<br>
+				<!--img src="/getThePic(placeholder name)" alt="" width="60%";     what does this do?-->
+				
+				<!--it would be nice if this form could still allow for multiple single uplaods like the this one button-->
 		    </div>
         </div>
 		
