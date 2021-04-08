@@ -9,58 +9,38 @@
 	<body>
 		
         <script type="text/javascript"> 
-			function insertChoice(choice){
+
+			function truncateTable(){
 
 				var xhr = new XMLHttpRequest();
-				xhr.open("POST","http://localhost:3000/insertChoice?=" + choice);
-				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                xhr.onreadystatechange = function() {
-        			if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            			document.getElementById("response-div").innerHTML = this.responseText;
-       				}
-				};
-
-				xhr.send();
-   			}
-			/*function upload-profile-pic(){
-
-				var xhr = new XMLHttpRequest();
-				xhr.open("POST","http://localhost:3000/upload-profile-pic?" );
+				xhr.open("POST","http://localhost:3000/truncateTable" );
 				xhr.setRequestHeader("Content-Type", "application/x-ww-form-urlencoded");
 				
-				xhr.onreadystatechange = function() {
-					if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-						document.getElementById("response-div").innerHTML = this.responseText;
-					}
-				};
-
 				xhr.send();
-			}*/
+				
+			}
+
 			
 		</script>
 
 
 		<h1>Cats or dogs! which one is better?</h1>
-        <div id="response-div">
-			<div id="banner-text">
-                <h3 style="color:darkmagenta;">Cats or dogs?</h3> <br>
-				<!--<input type="text">
-				<button type="submit">Put in the picture</button>-->
-				<form method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
-						<label>Select your cat or dog picture:</label>
-						<input type="file" name="profile_pic" />
-						<input type="submit" name="btn_upload_profile_pic" value="Upload" />
-				</form>
-				<br>
-				<!--img src="/getThePic(placeholder name)" alt="" width="60%";     what does this do?-->
+		<div id="banner-text">
+			<form method="POST" action="/upload-pic" enctype="multipart/form-data" onchange="intoPage()">
+					<label>Select your cat or dog picture:</label>
+					<input type="file" name="animal_pic" />
+					<input type="submit" name="btn_upload_animal_pic" value="Upload" />
+			</form>
+			<br>
+			<img src="/getpic" alt="thisIsCat" id="memeImg">
 				
-				<!--it would be nice if this form could still allow for multiple single uplaods like the this one button-->
-		    </div>
-        </div>
+		</div>
 		
 		<hr>
-		<button type="button" onclick="insertChoice(0)" id="booton">This One</button>
-		<footer>Go Patriots!</footer>
+		<div id="bottom-button">
+			<h4>Image not loading?</h4>
+			<p>reset it</p>
+			<button onclick="truncateTable()" id="bottom-button">reset</button>
+		</div>
 	</body>
 </html>

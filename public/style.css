@@ -1,0 +1,30 @@
+body {
+    background-color: #576066;
+    color: #E3C0D3;
+    margin: 50px;
+	font-size: 1.1em;
+}
+
+h1 {
+    text-align: center;
+}
+
+#memeImg {
+    display: block;
+    size: 50%;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#banner-text {
+    text-align: center;
+    margin: 5%;
+}
+
+
+#bottom-button {
+    text-align: center;
+    size: 150%;
+    padding: 15px;
+}

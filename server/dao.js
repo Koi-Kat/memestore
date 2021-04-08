@@ -31,7 +31,6 @@ async function getMeme(){
     con.query("SELECT filename FROM yelp.memeStore",
     function (err, result) {
         if (err) throw err;
-        console.log(result.length);
         var i = Math.floor(Math.random() * result.length);
         resolve (result[i].filename);
     }); 
@@ -43,7 +42,7 @@ function truncateTable() {
   function (err, result) {
       if (err) throw err;
       con.query("TRUNCATE TABLE memeStore");
-      console.log(result.length);
+      //make sure to not delete this picture
       insertMeme("animal_pic-1617822915841-138958197.png")
       //the problem with this is that it doesn't delete the files in the folder
       //so there are more images in the folder than the array
